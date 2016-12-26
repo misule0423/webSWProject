@@ -1,0 +1,148 @@
+    <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
+      margin: auto;
+  }
+  </style>
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="height:500px">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+    </ol>
+
+  <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="assets/images/스포츠_mainSilder01.jpg" alt="Chania"  style="height:500px">
+          <div style=" position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-60%,-60%);
+    -ms-transform: translate(-60%,-60%); color: white">
+          <h1 style="text-align: center; ">농구장</h1>
+          <br>
+          <h4> <span style="color: #e55f5e; ">10명</span>이 모이면 입장권이<span style="color: #e55f5e">30%</span>가 할인됩니다.</h4>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="assets/images/스포츠_mainSilder02.jpg" alt="Chania"   style="height:500px">
+          <div style=" position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-60%,-60%);
+    -ms-transform: translate(-60%,-60%); color: white;">
+          <h1 style="text-align: center; background-color: #373737">스키장</h1>
+          <br>
+          <h4 style="background-color: #373737"> <span style="color: #e55f5e; ">5명</span>이 모이면 시즌권이<span style="color: #e55f5e">30%</span>가 할인됩니다.</h4>
+        </div>
+      </div>
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+
+
+<div class="container" style="margin-top:50px;">
+
+      <div id="searchFilterWrap">
+        <!-- <form id="searchForm">
+          <input type="text"
+                    id="searchBox"
+                    placeholder="Search by title"
+                    ng-model="searchTxt"
+                    ng-model-options="{debounce : 600}" />
+        </form>
+
+        <div class="modal-backdrop-am-fade"
+              id="sortByWrap">
+          Sort By : <i class="fa fa-calendar"
+                            ng-click="sortByTime()"></i>
+                        <i class="fa fa-thumbs-up"
+                            ng-click="sortByLikes()"></i>
+ -->
+          <button class="btn btn-primary"
+                      data-animation="am-fade-and-scale"
+                      data-placement="center"
+                      data-template-url="app/main/addLookModal.html"
+                      bs-modal="showModal"
+                      style="border-color:#373737; background-color: #e55f5e; border-color:#e55f5e; margin-right: 20px; padding: 15px 15px;">모임 만들러 가기</button>
+
+          <a href="main8">
+          <button class="btn btn-primary"
+                      data-animation="am-fade-and-scale"
+                      data-placement="center"
+                      style="border-color:#373737; background-color: #373737; padding: 15px 15px;">문화</button>
+          </a>
+          
+          <a href="main9">
+          <button class="btn btn-primary"
+                      data-animation="am-fade-and-scale"
+                      data-placement="center"
+                      style="border-color:#373737; background-color: #373737; padding: 15px 15px;">레저, 스포츠</button>
+          </a>
+
+          <a href="main10">
+          <button class="btn btn-primary"
+                      data-animation="am-fade-and-scale"
+                      data-placement="center"
+                      style="border-color:#373737; background-color: #373737; padding: 15px 15px;">여행</button>
+          </a>
+
+
+          <a href="main11">
+          <button class="btn btn-primary"
+                      data-animation="am-fade-and-scale"
+                      data-placement="center"
+                      style="border-color:#373737; background-color: #373737; padding: 15px 15px;">의료</button>
+          </a>
+
+          </div>
+
+  <!-- Angular Grid -->
+  <div class="container" infinite-scroll="nextPage()" infinite-scroll-disabled="busy || noMoreData" infinite-scroll-distance="0.1">
+    <ul class="dynamic-grid angular-grid"
+          angular-grid="looks"
+          grid-width="200"
+          gutter-size="10"
+          angular-grid-id="gallery"
+          refresh-on-img-load="true">
+     <li data-ng-repeat="look in looks track by $index"
+          class="grid"
+          ng-cloak>
+        <a ui-sref="look ({ lookId: look._id })"
+            class="lookLink">
+          <img ng-src="{{ look.image }}"
+                  class="grid-img"
+                  data-actual-width="{{ look.actualWidth }}"
+                  data-actual-height="{{ look.actualHeight }}" />
+
+          <div class="titleClass">
+            <span >{{ look.title.substr(0,30) }}</span>
+          </div>
+          <div class="titleClass2">
+            <span >날짜 : {{ look.date }}</span>
+            
+          </div>
+          <div class="look-description-trim">
+            {{ look.description.substr(0,100) }}
+          </div>
+
+
+        </a>
+
+        </div>
+      </li>
+    </ul>
+    <div ng-show='busy'>Loading data...</div>
+  </div>
+</div>

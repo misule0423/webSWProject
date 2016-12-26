@@ -1,0 +1,37 @@
+
+<div class="w3-top" role="navigation"
+        ng-controller="NavbarCtrl">
+  <ul class="w3-navbar w3-white w3-wide w3-padding-8 w3-card-2">
+    <li>
+      <a href="#home" ui-sref="main" class="w3-margin-left" style="color: black"><b>모두의</b> <span style="color: #e55f5e">할인</span></a>
+    </li>
+    <li class="w3-left w3-hide-small">
+      <a href="main1" class="w3-left" style="color: black">지역별</a>
+      <a href="main12" class="w3-left" style="color: black">분야별</a>
+
+    </li>
+
+    <li ng-hide="isLoggedIn()" class="w3-right w3-hide-small" ng-class="{active: isActive('/signup')}">
+      <a ui-sref="signup" id="nav-internal" style="color: black">회원가입</a>
+    </li>
+
+    <li ng-hide="isLoggedIn()" class="w3-right w3-hide-small" ng-class="{active: isActive('/login')}">
+      <a ui-sref="login" id="nav-internal" style="color: black">로그인</a>
+    </li>
+
+
+    <li ng-show="isLoggedIn()" class="w3-right w3-hide-small" ng-class="{active: isActive('/logout')}">
+      <a href="" ng-click="logout()" style="color: black">로그아웃</a>
+    </li>
+
+    <li ng-show="isLoggedIn()" class="w3-right w3-hide-small"><a href="/mylooks"  style="color: black">마이페이지</a></li>
+    <!-- 
+    <li><a href="/settings">Settings</a></li> -->
+    <!-- <li ng-show="isLoggedIn()" class="w3-right w3-hide-small"><a href="/profile"  style="color: black">프로필</a></li> -->
+
+    <li ng-show="isAdmin()" class="w3-right w3-hide-small" ng-class="{active: isActive('/admin')}">
+      <a ui-sref="admin" style="color: black">관리자페이지</a>
+    </li>
+
+  </ul>
+</div>

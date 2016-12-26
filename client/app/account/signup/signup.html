@@ -1,0 +1,82 @@
+<div class="center-block" style=" border: 2px solid #373737; border-radius: 8px;  width: 350px; padding: 10px 20px 20px 20px; margin-top:100px; text-align: center">
+<h5>모두의 할인은 회원가입 후 사용하실 수 있습니다.</h5>
+</div>
+
+<div class="center-block" style=" border: 2px solid #373737; border-radius: 8px;  width: 350px; padding: 10px 20px 20px 20px; margin-top:10px">
+  <h3 class="text-center" style="color: black;">회원가입</h3>
+
+    <form class="form" name="form" ng-submit="register(form)" novalidate>
+
+      <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
+                                          'has-error': form.name.$invalid && submitted }">
+
+        <input type="text" name="name" placeholder="이메일" class="form-control" ng-model="user.name"
+               required style="height: 45px; margin-top: 50px"/>
+        <p class="help-block" ng-show="form.name.$error.required && submitted">
+          A name is required
+        </p>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-success': form.email.$valid && submitted,
+                                          'has-error': form.email.$invalid && submitted }">
+
+        <input type="email" name="email" placeholder="이메일" class="form-control" ng-model="user.email"
+               required
+               mongoose-error style="height: 45px"/>
+        <p class="help-block" ng-show="form.email.$error.email && submitted">
+          Doesn't look like a valid email.
+        </p>
+        <p class="help-block" ng-show="form.email.$error.required && submitted">
+          What's your email address?
+        </p>
+        <p class="help-block" ng-show="form.email.$error.mongoose">
+          {{ errors.email }}
+        </p>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-success': form.password.$valid && submitted,
+                                          'has-error': form.password.$invalid && submitted }">
+
+        <input type="password" name="password" placeholder="비밀번호" class="form-control" ng-model="user.password"
+               ng-minlength="3"
+               required
+               mongoose-error style="height: 45px"/>
+        <p class="help-block"
+           ng-show="(form.password.$error.minlength || form.password.$error.required) && submitted">
+          Password must be at least 3 characters.
+        </p>
+        <p class="help-block" ng-show="form.password.$error.mongoose">
+          {{ errors.password }}
+        </p>
+      </div>
+
+      <div>
+        <button class="btn btn-primary btn-lg btn-login form-control" type="submit" style="background-color: #e55f5e; border-color: #e55f5e; height: 45px; margin-top: 20px">
+          회원 가입하기
+        </button>
+
+        <a class="btn btn-default btn-lg btn-register" href="/login" style="
+    border-color: white;
+    font-size: 13px;
+">
+          로그인하기
+        </a>
+        
+      </div>
+
+    </form>
+
+</div>
+
+<!-- Footer -->
+<footer class=" w3-padding-16" style="background-color: #373737; color: white; height: 200px; padding: 20px 20px; margin-top: 50px">
+  <h3>모두의 <span style="color:#e55f5e">할인</span></h3>
+  <br>
+  <p>할인 카드와 멤버쉽. 막상 쓰려고 보면 무수히 붙는 제약조건.<br>
+
+조건없는 단체할인을 받기 어려웠던 개인들에게<br>
+
+"모두의 할인"이 단체할인을 손쉽게 이용하는 방법을 제시합니다.</p>
+  
+
+</footer>
